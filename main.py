@@ -5,9 +5,6 @@
 
 from plyer import notification
 import time
-import os
-fp=os.path.join("data", "data/questions1.dat")
-p=os.path.join("data", "data/questions.dat")
 import random
 #import datetime
 import pickle
@@ -29,30 +26,24 @@ def inbuilt():
                 msg = "Your total score is:"
                 L1 = [0,1,2,3,4,5,6,7,8,9]
                 counter = 0
-                index = 0
-                p = 1
+                index=0
+                p=1
                 temp = []
                 L3 = []
-                for i in range(0,11):
-                    try:
-                        with open(fp, "rb") as f:
+                with open("data/questions1.dat", "rb") as f:
+                    while True:
+                        try:
                             L = pickle.load(f)
                             L3.append(L)
-
-                    except EOFError:
-                        f.close()
-                        print("The Quiz Starts Now!")
+                        except EOFError:
+                            break
 
                 L2 = random.sample(L1, 10)
+                print("The Quiz Starts Now!")
 
-                for i in L3:
-                    if index == 0 or index == 9:
-                        temp_index = L2[index]
-                        temp = L3[temp_index]
-                    else:
-                        temp_index = L2[index + 1]
-                        temp = L3[temp_index]
-
+                for i in range(10):
+                    temp_index = L2[index]
+                    temp=L3[temp_index]
                     Question = temp[0]
                     Answer = temp[1]
                     print("")
@@ -67,16 +58,16 @@ def inbuilt():
                         print("")
                         print("Your answer was Incorrect, Better Luck Next Time!")
                         print("The correct answer is:",Answer)
-                if p >= 10:
-                    str_counter = str(counter)
-                    fin_msg = msg+''+str_counter+cong
-                    print("")
-                    titl = "Computer-Quiz(Intermediate)"
+                    index += 1
+                    p += 1
+                str_counter = str(counter)
+                fin_msg = msg+''+str_counter+cong
+                print("")
+                titl = "Computer-Quiz(Easy)"
+                path="icons/confetti.ico"
+                notification.notify(message = fin_msg,timeout = 10, title = titl, app_icon = path )
 
-                    notification.notify(message = fin_msg,timeout = 10, title = titl )
-
-                index += 1
-                p += 1
+                
 
                 gc.collect()
             def intermediate():
@@ -88,32 +79,26 @@ def inbuilt():
                 p = 1
                 temp = []
                 L3 = []
-                for i in range(0,11):
-                    try:
-                        with open(p, "rb") as f:
+                with open("data/questions.dat", "rb") as f:
+                    while True:
+                        try:
                             L = pickle.load(f)
                             L3.append(L)
-
-                    except EOFError:
-                        f.close()
-                print("")
-                print("The Quiz Starts Now!")
+                        except EOFError:
+                            break
 
                 L2 = random.sample(L1, 10)
+                print("The Quiz Starts Now!")
 
-                for i in L3:
-                    if index == 0 or index == 9:
-                        temp_index = L2[index]
-                        temp = L3[temp_index]
-                    else:
-                        temp_index = L2[index + 1]
-                        temp = L3[temp_index]
-
+                for i in range(10):
+                    temp_index = L2[index]
+                    temp=L3[temp_index]
                     Question = temp[0]
                     Answer = temp[1]
                     print("")
                     print("#",p,Question)
                     Input_Ans = input("Please enter your answer:")
+
                     if Input_Ans.lower() == Answer.lower():
                         print("")
                         print("Your answer was Correct!")
@@ -121,14 +106,15 @@ def inbuilt():
                     else:
                         print("")
                         print("Your answer was Incorrect, Better Luck Next Time!")
-                if p >= 10:
-                    str_counter = str(counter)
-                    fin_msg = msg+''+str_counter+cong
-                    print("")
-                    titl = "Computer-Quiz(Intermediate)"
-                    notification.notify(message = fin_msg,timeout = 10, title = titl )
-                index += 1
-                p += 1
+                        print("The correct answer is:",Answer)
+                    index += 1
+                    p += 1
+                str_counter = str(counter)
+                fin_msg = msg+''+str_counter+cong
+                print("")
+                titl = "Computer-Quiz(Intermediate)"
+                path="icons/confetti.ico"
+                notification.notify(message = fin_msg,timeout = 10, title = titl, app_icon = path )
 
                 gc.collect()
             uni = True
