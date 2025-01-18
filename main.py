@@ -170,7 +170,7 @@ def custom():
         print("")
         custm_title = input("Please enter a suitable Title for your custom notification:-")
         custm_message = input("Please enter a suitable Message for your custom notification:-")
-        custm_timeout = int(input("Please enter a suitable Timeout for your custom notification:-"))
+        custm_timeout = input("Please enter a suitable Timeout for your custom notification:-")
         custm_slp_timer= input('''Please enter a suitable time for the notification to appear again, Enter as Hour:Minutes:Seconds. For Example:- 02:30:45.''')
         x,n,k = int(custm_slp_timer[0:2]), int(custm_slp_timer[3:5]), int(custm_slp_timer[6:])
         m,b = x*3600 , n*60
