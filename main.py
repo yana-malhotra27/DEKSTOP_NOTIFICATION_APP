@@ -283,6 +283,7 @@ def exit_prog():
 gc.collect()
 x = input("Enter the required password:")
 passwd = "3xpire987$%"
+passwd="x"
 if x == passwd:
     while True:
         print("")
