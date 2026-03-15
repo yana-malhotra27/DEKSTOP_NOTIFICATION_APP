@@ -6,7 +6,7 @@
 from plyer import notification
 import time
 import random
-#import datetime
+from datetime import datetime
 import pickle
 import gc
 def inbuilt():
@@ -136,11 +136,8 @@ def inbuilt():
                 else:
                     print("Please enter the designated values only")
         elif X == 'A2':
-            seconds = time.time()
-            local_time = time.ctime(seconds)
-            n,n1 = local_time[11:13], local_time[14:16]
-            c,c1 = int(n), int(n1)
-            curr_time = c*60 + c1
+            now = datetime.now()
+            curr_time = now.hour*60 + now.minute
             path="icons/confetti.ico"
             a = 0
             L = ["Whatever it is you're seeking won't come in the form you're expecting. :― Haruki Marukami","Belief creates the actual fact. :— William James",'''You don’t always need a plan. Sometimes you just need to breathe, trust, let go and see what happens. :— Mandy Hale''', '''Try to be a rainbow in someone’s cloud. :— Maya Angelou''','''“Faith is love taking the form of aspiration. :—William Ellery Channing''']
@@ -148,11 +145,8 @@ def inbuilt():
             while a<=5:
                 notification.notify(title = "Positive Affirmations",message = L[x], timeout = 10, app_icon = path )
                 time.sleep(120)
-                seconds = time.time()
-                local_time = time.ctime(seconds)
-                f,f1 = local_time[11:13], local_time[14:16]
-                d,d1 = int(f), int(f1)
-                fin_time = d*60 + d1
+                now = datetime.now()
+                fin_time = now.hour*60 + now.minute
                 a = fin_time - curr_time
 
                 gc.collect()
@@ -182,11 +176,8 @@ def custom():
         print("")
         icon = input("Please enter your choice:-")
         if icon == "0" :
-            seconds = time.time()
-            local_time = time.ctime(seconds)
-            n,n1 = local_time[11:13], local_time[14:16]
-            c,c1 = int(n), int(n1)
-            curr_time = c*60 + c1
+            now = datetime.now()
+            curr_time = now.hour*60 + now.minute
             a = 0
 
             print("")
@@ -195,21 +186,15 @@ def custom():
                 notification.notify(title = custm_title,message = custm_message, timeout = custm_timeout, app_icon = icon_path )
 
                 time.sleep(slp_timer)
-                seconds = time.time()
-                local_time = time.ctime(seconds)
-                f,f1 = local_time[11:13], local_time[14:16]
-                d,d1 = int(f), int(f1)
-                fin_time = d*60 + d1
+                now = datetime.now()
+                fin_time = now.hour*60 + now.minute
                 a = fin_time - curr_time
 
             gc.collect()
 
         elif icon == "1":
-            seconds = time.time()
-            local_time = time.ctime(seconds)
-            n,n1 = local_time[11:13], local_time[14:16]
-            c,c1 = int(n), int(n1)
-            curr_time = c*60 + c1
+            now = datetime.now()
+            curr_time = now.hour*60 + now.minute
             a = 0
 
             while a<= 5:
@@ -218,11 +203,8 @@ def custom():
                 )
 
                 time.sleep(slp_timer)
-                seconds = time.time()
-                local_time = time.ctime(seconds)
-                f,f1 = local_time[11:13], local_time[14:16]
-                d,d1 = int(f), int(f1)
-                fin_time = d*60 + d1
+                now = datetime.now()
+                fin_time = now.hour*60 + now.minute
                 a = fin_time - curr_time
 
                 gc.collect()
