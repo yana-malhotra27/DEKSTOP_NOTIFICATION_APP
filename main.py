@@ -9,6 +9,7 @@ import random
 from datetime import datetime
 import pickle
 import gc
+import winsound
 def inbuilt():
     try:
         print("")
@@ -143,6 +144,7 @@ def inbuilt():
             L = ["Whatever it is you're seeking won't come in the form you're expecting. :― Haruki Marukami","Belief creates the actual fact. :— William James",'''You don’t always need a plan. Sometimes you just need to breathe, trust, let go and see what happens. :— Mandy Hale''', '''Try to be a rainbow in someone’s cloud. :— Maya Angelou''','''“Faith is love taking the form of aspiration. :—William Ellery Channing''']
             x = random.randint(0,4)
             while a<=5:
+                winsound.Beep(1200,500)
                 notification.notify(title = "Positive Affirmations",message = L[x], timeout = 10, app_icon = path )
                 time.sleep(120)
                 now = datetime.now()
